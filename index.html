@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="proj.css">
+</head>
+<body>
+    <div class="row"></div>
+        <div class="col1">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">SignUp</a></li>
+            </ul>
+        </div>
+    <div class="col2">
+        <h1>My First page</h1>
+    </div>
+    <div class="con">
+    <div class="row1">
+    
+        <body>
+            <!-- <h1>REGISTRATION FORM</h1> -->
+            <form action="">
+                <div>
+                <label for="name" >NAME  : </label>
+                <input type="text" id="name" class="tf" required placeholder="Enter Name">
+                <div class="error"></div>
+                </div>
+                <br>
+                <div>
+                <label for="ph">PH NUM : </label>
+                <input type="number" id="ph" class="tf" required placeholder="Enter Number">
+                <div class="error"></div>
+                </div>
+                <br>
+                <div>
+                <label for="mail">EMAIL : </label>
+                <input type="email" id="mail" class="tf" required placeholder="Enter Email">
+                <div class="error"></div>
+                </div>
+                <br>
+                <div>
+                <label>GENDER : </label>
+                <input type="radio" id="genn" name="gender" value="male"><label for="genn">Male</label>
+                <input type="radio" id="gen" name="gender" value="Female" ><label for="gen">Female</label>
+                <input type="radio" id="gen2" name="gender" value="Transgender"><label for="gen2">Transgender</label>
+                <div class="error"></div>
+                </div>
+                <br>
+                <div>
+                <label>DEPARTMENT : </label>
+        
+                <input type="checkbox" id="a" name="DEPARTMENT" value="AI&DS"> <label for="a">AI&DS</label>
+                <input type="checkbox" id="b" name="DEPARTMENT" value="CSE"> <label for="b">CSE</label>
+                <input type="checkbox" id="c" name="DEPARTMENT" value="IT"> <label for="c">IT</label>
+                <div class="error"></div>
+                </div>
+                <br>
+                <div>
+                <label for="COLLEGE">COLLEGE : </label>
+                <select id="drops">
+                    <option>Select Here</option>
+                    <option value="GRT">GRT</option>
+                    <option value="IIT">IIT</option>
+                    <option value="VIT">VIT</option>
+                </select>
+                <div class="error"></div>
+                </div>
+                <br>
+                <div>
+               <button type="button" onclick="sumbitdata()" id="sss">sumbit</button>
+               </div>
+                <br><br>
+                <script>
+                    function sumbitdata(){
+                        let names = document.getElementById("name");
+                        console.log(names);
+                        console.log(names.value);
+                        let finalname=names.value;
+
+                        let number = document.getElementById("ph");
+                        console.log(number);
+                        console.log(number.value);
+                        let finalnumber=number.value;
+
+                        let email = document.getElementById("mail");
+                        console.log(email);
+                        console.log(email.value);
+                        let finalemail=email.value
+                       
+                        let valgen =document.getElementsByName("gender");
+                        let res="";
+                        for(let val of valgen){
+                            if(val.checked){
+                                res=val.value;
+                            }
+                        }
+                        console.log(res);
+                        console.log(res.value);
+                        let finalres=res;
+                       
+                        let checks = document.getElementsByName("DEPARTMENT")
+                       console.log(checks);
+                       let arr=[];
+                       for(let val of checks){
+                        if(val.checked){
+                            arr.push(val.value)
+                        }
+                            }
+                            console.log(arr);
+                            console.log(arr.join);
+                            
+
+                        
+                        console.log(arr);
+                        console.log(arr.value);
+                        let finalres2=arr
+
+                        let res3=document.getElementById("drops");
+                        console.log(res3);
+                        console.log(res3.value);
+                        let finaldropdown=res3.value;
+
+
+
+                        console.log(finalname);
+                        console.log(finalnumber);
+                        console.log(finalemail);
+                        console.log(finalres);
+                        console.log(finalres2);
+                        console.log(finaldropdown);
+
+
+
+                        if(finalname===''){
+                           setError( names,"name is empty")
+                        }
+                        else{
+                            setSuccess(names);
+                         }
+
+
+
+                        if(finalnumber==='')
+                        {
+                           setError(number,"number is empty")
+                        }
+                        else{
+                            setSuccess(number);
+                         }
+
+
+
+                        if(finalemail===''){
+                           setError(email,"Email is empty")
+                        }
+                        else{
+                            setSuccess(email);
+                         }
+
+
+
+                        if(finalres==='')
+                        {
+                            setError(valgen[0],"gender is empty")
+                        }
+                        else{
+                            setSuccess(valgen[0]);
+                         }
+
+
+    
+                        if(finalres2=='')
+                        {
+                        let checks = document.getElementsByName("DEPARTMENT")
+                           setError( checks[0],"department is empty")
+                        }
+                        else{
+                            setSuccess(checks[0]);
+                         }
+
+
+
+                         if(finaldropdown==='select here'){
+                            setError(res3,"Please select a college");
+                         }
+                        else{
+                            setSuccess(res3);
+                         }
+
+
+
+}
+    function setError(element,msg){
+        let parents=element.parentElement;
+        let resfinal=parents.querySelector(".error");
+        resfinal.innerText=msg;
+    }
+
+    function setSuccess(element){
+        let parents=element.parentElement;
+        let resfinal=parents.querySelector(".error");
+        resfinal.innerText='';
+    }
+
+
+
+</script>
+        
+            </form>
+        </body>
+    </div>
+</div>
+</body>
+</html>
